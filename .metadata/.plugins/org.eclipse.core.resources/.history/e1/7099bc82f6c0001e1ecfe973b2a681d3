@@ -1,0 +1,20 @@
+package org.leap.et.Entity;
+
+import jakarta.persistence.Entity;
+import lombok.Data;
+
+@Entity
+@Data
+public class Expense {
+
+	private int eID;
+	
+	private String date;
+	
+	private double amount;
+	
+	private String category;
+	
+	private String description;
+	
+}

@@ -1,0 +1,8 @@
+package org.leap.et.Repository;
+
+import org.leap.et.Entity.Expense;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ExpenseRespository extends JpaRepository<Expense, Integer> {
+
+}

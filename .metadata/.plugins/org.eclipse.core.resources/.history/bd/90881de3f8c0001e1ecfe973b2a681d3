@@ -1,0 +1,5 @@
+package org.leap.et.Dao;
+
+public class ExpenseDao {
+
+}

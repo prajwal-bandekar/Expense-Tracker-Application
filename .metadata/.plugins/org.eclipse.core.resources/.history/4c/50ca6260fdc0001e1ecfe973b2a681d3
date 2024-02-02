@@ -1,0 +1,15 @@
+package org.leap.et.Service;
+
+import org.leap.et.Dao.ExpenseDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ExpenseService {
+	
+	@Autowired
+	private ExpenseDao eDao;
+	
+	
+
+}

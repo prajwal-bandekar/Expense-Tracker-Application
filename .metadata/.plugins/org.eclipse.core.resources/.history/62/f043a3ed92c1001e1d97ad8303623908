@@ -1,0 +1,106 @@
+package org.leap.et.Service;
+
+import java.util.Optional;
+
+import org.leap.et.Dao.ExpenseDao;
+import org.leap.et.Dao.MemberDao;
+import org.leap.et.Entity.Expense;
+import org.leap.et.Entity.Member;
+import org.leap.et.Entity.ResponseStructure;
+import org.leap.et.Exceptions.IdNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ExpenseService {
+	
+	@Autowired
+	private ExpenseDao eDao;
+	
+	@Autowired
+	private MemberDao mDao;
+	
+	public ResponseEntity<ResponseStructure<Expense>> saveExpense(int mID, Expense e){
+		Optional<Member> recMember = mDao.findMemberById(mID);
+		ResponseStructure<Expense> structure = new ResponseStructure<>();
+		if(recMember.isPresent()) {
+			Member m = recMember.get();
+			m.getExpenses().add(e);
+			e.setMember(m);
+			mDao.updateMember(m);
+			eDao.saveExpense(e);
+			
+			structure.setData(e);
+			structure.setMessage("Portfolio Added Succesfully");
+			structure.setStatusCode(HttpStatus.CREATED.value());
+			return new ResponseEntity<ResponseStructure<Expense>>(structure, HttpStatus.CREATED);
+		}
+		
+		throw new IdNotFoundException();
+	}
+	
+	public ResponseEntity<ResponseStructure<Expense>> updateExpense(int mID, Expense e){
+		Optional<Member> recMember = mDao.findMemberById(mID);
+		ResponseStructure<Expense> structure = new ResponseStructure<>();
+		if(recMember.isPresent()) {
+			
+			Member m = recMember.get();
+			e.setMember(m);
+			eDao.saveExpense(e);
+			
+			structure.setData(e);
+			structure.setMessage("Portfolio Added Succesfully");
+			structure.setStatusCode(HttpStatus.CREATED.value());
+			return new ResponseEntity<ResponseStructure<Expense>>(structure, HttpStatus.CREATED);
+		}
+		
+		throw new IdNotFoundException();
+	}
+	
+	public ResponseEntity<ResponseStructure<Expense>> findById(int eID){
+		ResponseStructure<Expense> structure = new ResponseStructure<>();
+		Optional<Expense> recExpense = eDao.findExpenseById(eID);
+		if(recExpense.isPresent()) {
+			structure.setMessage("Expense Found Successfully");
+			structure.setData(recExpense.get());
+			structure.setStatusCode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<Expense>>(structure, HttpStatus.OK);
+		}
+//		Add Exceptions in place of Else Statement
+		throw new IdNotFoundException();
+	}
+	
+	
+	public ResponseEntity<ResponseStructure<Expense>> findAllExpense(int mID){
+		ResponseStructure<Expense> structure = new ResponseStructure<>();
+		Optional<Expense> recExpense = eDao.findAllExpense(mID)''
+		if(recExpense.isPresent()) {
+			structure.setMessage("Expense Found Successfully");
+			structure.setData(recExpense.get());
+			structure.setStatusCode(HttpStatus.OK.value());
+			return new ResponseEntity<ResponseStructure<Expense>>(structure, HttpStatus.OK);
+		}
+//		Add Exceptions in place of Else Statement
+		throw new IdNotFoundException();
+	}
+	
+	
+	public ResponseEntity<ResponseStructure<String>> deleteExpense(int eID){
+		ResponseStructure<String> structure = new ResponseStructure<>();
+		Optional<Expense> recExpense = eDao.findExpenseById(eID);
+		
+		if(recExpense.isPresent()) {
+			
+			eDao.deleteExpense(eID);
+			structure.setMessage("Task Executed");
+			structure.setData("Expense deleted");
+			structure.setStatusCode(HttpStatus.NOT_FOUND.value());
+			return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+		}
+//		Add Exceptions in place of Else Statement
+		throw new IdNotFoundException();
+	}
+
+}

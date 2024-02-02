@@ -1,0 +1,8 @@
+package org.leap.et.Repository;
+
+import org.leap.et.Entity.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberRepositiory extends JpaRepository<Member, Integer> {
+
+}

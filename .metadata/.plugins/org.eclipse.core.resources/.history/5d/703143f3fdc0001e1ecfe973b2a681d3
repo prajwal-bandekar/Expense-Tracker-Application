@@ -1,0 +1,24 @@
+package org.leap.et.Service;
+
+import org.leap.et.Dao.MemberDao;
+import org.leap.et.Entity.Member;
+import org.leap.et.Entity.ResponseStructure;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+public class MemberService {
+
+	@Autowired
+	private MemberDao mDao;
+	
+	public ResponseEntity<ResponseStructure<Member>> saveMember(Member m){
+		ResponseStructure<Member> structure = new ResponseStructure<>();
+		structure.setData(mDao.saveMember(m));
+		structure.setMessage("Member Created Sucesfully");
+		structure.setStatusCode(HttpStatus.CREATED.value());
+	}
+	
+}

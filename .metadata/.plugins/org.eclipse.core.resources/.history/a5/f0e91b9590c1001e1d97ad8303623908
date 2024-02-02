@@ -1,0 +1,10 @@
+package org.leap.et.Repository;
+
+import org.leap.et.Entity.Expense;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface ExpenseRespository extends JpaRepository<Expense, Integer> {
+
+	@Query("select")
+}

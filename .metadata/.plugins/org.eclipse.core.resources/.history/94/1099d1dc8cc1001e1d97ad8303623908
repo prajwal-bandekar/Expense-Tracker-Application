@@ -1,0 +1,40 @@
+package org.leap.et.Controller;
+
+import org.leap.et.Entity.Expense;
+import org.leap.et.Entity.ResponseStructure;
+import org.leap.et.Service.ExpenseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ExpenseController {
+	@Autowired
+	private ExpenseService service;
+
+	@PostMapping("/portfolio/{advisorID}")
+	public ResponseEntity<ResponseStructure<Expense>> saveExpense(@RequestBody Expense e, @PathVariable int mID){
+		return service.saveExpense(mID, e);
+	}
+	
+	@PutMapping("/portfolio/{advisorID}")
+	public ResponseEntity<ResponseStructure<Expense>> updateExpense(@RequestBody Expense e, @PathVariable int mID){
+		return service.updateExpense(mID, e);
+	}
+	
+	@GetMapping("/portfolio/{portfolioID}")
+	public ResponseEntity<ResponseStructure<Expense>> findByID(@PathVariable int portfolioID){
+		return service.findById(portfolioID);
+	}
+
+	@DeleteMapping("/portfolio/{portfolioID}")
+	public ResponseEntity<ResponseStructure<String>> deleteExpense(@PathVariable int portfolioID){
+		return service.deleteExpense(portfolioID);
+	}
+}

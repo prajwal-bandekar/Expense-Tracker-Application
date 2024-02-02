@@ -1,0 +1,5 @@
+package org.leap.et.Entity;
+
+public class ResponseStructure {
+
+}

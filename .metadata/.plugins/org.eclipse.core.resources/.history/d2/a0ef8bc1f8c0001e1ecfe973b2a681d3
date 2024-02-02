@@ -1,0 +1,35 @@
+package org.leap.et.Dao;
+
+import java.util.Optional;
+
+import org.leap.et.Entity.Expense;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class ExpenseDao {
+	
+	@Autowired
+	private ExpenseRepositiory repo;
+	
+	public Expense saveExpense(Expense m) {
+		return repo.save(m);
+	}
+	
+	public Expense updateExpense(Expense m) {
+		return repo.save(m);
+	}
+	
+	public Optional<Expense> findExpenseById(int mID) {
+		return repo.findById(mID);
+	}
+	
+	public void deleteExpense(int mID) {
+		repo.deleteById(mID);
+	}
+	
+	public Optional<Expense> verifyExpense(String email, String password){
+		return repo.verifyExpense(email, password);
+	}
+	
+}
