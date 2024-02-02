@@ -1,0 +1,217 @@
+/* PAGE 1 */
+#parentdiv{
+    height: 100%;
+    background-color: black;
+    color:#D1D5DB;
+}
+
+#herosection{
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+#herosection h1{
+    /* font-weight: 700; */
+    font-size: 4.2rem;
+    /* font-family: 'Libre Barcode 128 Text', system-ui; */
+    font-family: 'Kalnia', serif;
+    font-weight: 400;
+  }
+
+#h2Invest{
+  text-transform: uppercase;
+font-size: 5.2rem;
+  font-weight: 900;
+  margin-top: -30px;
+  color: #daccfc;
+  text-shadow: 9px 10px 0.5px #5e01f5;
+}
+
+#herosection>h5{
+    font-weight: 300;
+  color:#D1D5DB ;
+}
+
+#button{
+    height:40px;
+    width: 120px;
+    border: none;
+    border-radius: 8px;
+    background-color: #8B5CF6;
+    transition: 0.45s;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.buttonGrid{
+display: flex;
+flex-direction: row;
+padding: 0px 3px;
+}
+
+#button:hover{
+    font-weight: bolder;
+    color: white;
+    background-color: #5e01f5;
+}
+
+.LinkButton{
+  text-decoration: none;
+}
+.LinkButton:hover{
+  text-decoration: none;
+}
+
+
+
+/* PAGE 2 */
+#parentdiv2{
+  height: 80vh;
+  background-color: #111827;
+  color: #8B5CF6;
+}
+
+#header{
+  text-align: center;
+}
+
+#header h1{
+  padding-top: 40px;
+  font-weight: 700;
+  font-size: 3.2rem;
+  padding-bottom: 15px;
+}
+
+#KeySpan{
+  font-family: 'Kalnia', serif;
+}
+
+#FeaturesSpan{
+font-weight: 700;
+}
+
+
+#header h5{
+ color: gray;
+ padding-bottom: 20px;
+}
+
+#tab{
+  height: 20vh;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  text-align: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.h1tab{
+  font-size: 1.5rem;
+  color: white;
+}
+
+.h5tab{
+  font-size: 1rem;
+  color: grey;
+}
+
+.tabchild i{
+  padding: 45px 0;
+  font-size: 3em;
+}
+
+
+/* PAGE 3 */
+
+#parentdiv3{
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  color: #8B5CF6;
+}
+
+#tab-container{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header{
+  margin-bottom: 70px;
+ margin-top: -1rem;
+
+ h5{
+  margin-top: -1rem;
+ }
+}
+
+.tabs{
+border: 2px solid white;
+/* border-style: dashed; */
+height:24rem ;
+width: 27rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: -10px;
+border-radius: 12px;
+
+
+ p{
+color: #808070;
+font-size: 0.98rem;
+margin-top: -20px;
+padding: 10px;
+ }
+
+ h1{
+  z-index: 999;
+  font-size: 2rem;
+  color: #8B5CF6;
+  margin-top: 7.5rem;
+  /* text-shadow: 2px 2px 5px gray; */
+ }
+
+ h6{
+  color: rgb(209, 209, 209);
+ }
+
+}
+
+.tabs img{
+  position: absolute;
+top: -20%;
+
+ height: 11rem;
+ width: 11rem;
+ border-radius: 50%;
+ /* margin-top: -20px; */
+ /* padding: 8px; */
+ border: 8px solid #ffffff;
+
+ 
+}
+
+
+
+
+/* ALL IMAGE MODIFICATIONS */
+
+#erlich{
+  height: 150px;
+  width: 150px;
+}
+
+#russhanneman{
+  height: 200px;
+  /* width: 200px; */
+}

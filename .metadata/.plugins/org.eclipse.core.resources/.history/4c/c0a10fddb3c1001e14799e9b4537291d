@@ -1,0 +1,47 @@
+package org.leap.et.Controller;
+
+import java.util.List;
+
+import org.leap.et.Entity.Expense;
+import org.leap.et.Entity.ResponseStructure;
+import org.leap.et.Service.ExpenseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class ExpenseController {
+	@Autowired
+	private ExpenseService service;
+
+	@PostMapping("/expense/{mID}")
+	public ResponseEntity<ResponseStructure<Expense>> saveExpense(@RequestBody Expense e, @PathVariable int mID){
+		return service.saveExpense(mID, e);
+	}
+	
+	@PutMapping("/expense/{mID}")
+	public ResponseEntity<ResponseStructure<Expense>> updateExpense(@RequestBody Expense e, @PathVariable int mID){
+		return service.updateExpense(mID, e);
+	}
+	
+	@GetMapping("/expense/{eID}")
+	public ResponseEntity<ResponseStructure<Expense>> findByID(@PathVariable int eID){
+		return service.findById(eID);
+	}
+	
+	@GetMapping("/expense/find/{mID}")
+	public ResponseEntity<ResponseStructure<List<Expense>>> findAllExpense(@PathVariable int mID){
+		return service.findAllExpense(mID);
+	}
+
+	@DeleteMapping("/expense/{eID}")
+	public ResponseEntity<ResponseStructure<String>> deleteExpense(@PathVariable int eID){
+		return service.deleteExpense(eID);
+	}
+}
