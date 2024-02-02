@@ -24,7 +24,7 @@ public class ExpenseController {
 
 	@PostMapping("/expense/{mID}")
 	public ResponseEntity<ResponseStructure<Expense>> saveExpense(@RequestBody Expense e, @PathVariable int mID){
-		return service.saveExpense(mID,e);
+		return service.saveExpense(mID, e);
 	}
 	
 	@PutMapping("/expense/{mID}")
