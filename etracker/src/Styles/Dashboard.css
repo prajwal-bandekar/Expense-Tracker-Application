@@ -1,11 +1,67 @@
-#dash{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
+.dashboard-container {
+  text-align: center;
+  background-color: #111827;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    background-color: black;
-    color: #5E01F5;
+.expense-table {
+  width: 85%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.expense-table th {
+  background-color: #000000;
+  color: white;
+  font-weight: bold;
+  border: 1px solid white;
+  padding: 8px;
+  text-align: center;
+  height: 4.5rem;
+}
+
+.expense-table td {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
+}
+
+.expense-table tr:hover {
+  background-color: #1f2937;
+}
+
+.edit-button,
+.delete-button {
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+}
+
+.edit-button {
+  background-color: #38ba7d;
+  margin-right: 5px;
+}
+
+.delete-button {
+  background-color: #ef4444;
+}
+
+#actions {
+  display: flex;
+  justify-content: space-evenly;
 }
