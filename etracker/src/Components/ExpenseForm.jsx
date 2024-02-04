@@ -28,7 +28,7 @@ function SignupForm() {
           alert("Expense Sucessfully");
           console.log(res);
           // Change back to dashboard here
-          nav("/expense");
+          nav("/dashboard");
         })
         .catch((err) => {
           console.log(err);

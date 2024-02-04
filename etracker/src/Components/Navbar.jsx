@@ -22,9 +22,11 @@ const Navbar = () => {
 
         <div id="nav-right">
           <h4 className="linkNavBar"> <Link to="/">Home</Link></h4>
+          <h4 className="linkNavBar"> <Link to="/expense">Add Expense</Link></h4>
+          <h4 className="linkNavBar"> <Link to="/dashboard">Dashboard</Link></h4>
             <h4 className="linkNavBar"><Link to="/about">About us</Link></h4>
             <h4 className="linkNavBar" onClick={scrollToFooter}>Contact Us</h4>
-            {/* <h4 className="linkNavBar"><Link to="/contact-us">Contact Us</Link></h4> */}
+           
         </div>
       </div>
     </div>

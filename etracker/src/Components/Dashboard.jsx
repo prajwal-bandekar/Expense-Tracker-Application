@@ -3,6 +3,8 @@ import "../Styles/Dashboard.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Dashboard = () => {
   const [expenses, setExpenses] = useState([]);
@@ -31,9 +33,13 @@ const Dashboard = () => {
     } catch (error) {
       console.error("Error deleting expense:", error);
     }
+
+    window.location.reload();
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="dashboard-container">
       <h1>Expense Dashboard</h1>
       <table className="expense-table">
@@ -76,6 +82,9 @@ const Dashboard = () => {
         </tbody>
       </table>
     </div>
+    <Footer/>
+    </>
+    
   );
 };
 
